@@ -14,8 +14,8 @@ metedraw是一个主要面向于大气科学、海洋科学、环境科学等专
 # metedraw 1.0    ——2022/2/11
 
 【介绍】
-4种常用时间分析方法：时间序列time_series、年变化year_mean、月变化month_mean和日变化hour_mean
-3个可选参数：scheme画图类型、range_adjustment坐标范围调整、color_list配色方案
+4种常用时间分析方法：时间序列time_series、年变化year_mean、月变化month_mean和日变化hour_mean；
+3个可选参数：scheme画图类型、range_adjustment坐标范围调整、color_list配色方案。
 
 【功能特点】
 1.自动解析时间（气象数据为时间序列，文件第一列为时间），支持多种时间格式；
@@ -23,7 +23,7 @@ metedraw是一个主要面向于大气科学、海洋科学、环境科学等专
 3.自动根据文件中变量数目，生成相应数目的子图；
 4.自动调整子图排列方式、子图间距；
 5.range_adjustment自动坐标范围调整，解决matplotlibs只能手动调整坐标刻度的问题，适合绘制气压等数据；
-6.可配合matplotlib.pyplot使用，绘制更符合您需求的图片
+6.可配合matplotlib.pyplot使用，绘制更符合您需求的图片。
 
 【作品展示】
 示例1：2015-2020年沈阳市气象数据年变化（温度、露点、气压、风速）
