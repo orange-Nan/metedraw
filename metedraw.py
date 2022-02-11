@@ -128,7 +128,7 @@ def month_mean(file,lack_values,**keywords):
         average_list = data.groupby(data.index).mean()
         average_list = average_list.values
         df1[str(index_list[i])] = average_list
-    fig=plt.figure(dpi=200)
+    fig=plt.figure(figsize=(num1*5,num2*5),dpi=200)
     for i in range(1,num+1):
         draw_ax(df1,index_list,fig,num1,num2,i,keywords)
     plt.rcParams['font.sans-serif'] = ['SimHei']
