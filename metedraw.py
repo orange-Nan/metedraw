@@ -21,7 +21,8 @@ def draw_ax(df,index_list,fig,num1,num2,i):
     ax.plot(df[index_list[0]],df[index_list[i]])
     ax.set_xlabel('time')
     ax.set_ylabel(index_list[i])
-    #plt.xticks(rotation=30)
+    #plt.xticks(rotation=30)  #解决坐标标签重叠问题
+    plt.subplots_adjust(hspace=0.5,wspace=0.3)
     return(ax)
 
 def time_series(file,lack_values):
