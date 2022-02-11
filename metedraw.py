@@ -16,13 +16,30 @@ def open_csv(file,lack_values):
     f11.index = f11[time_index]
     return(f11)
 
-def draw_ax(df,index_list,fig,num1,num2,i):
+def draw_ax(df,index_list,fig,num1,num2,i,keywords):
+    scheme = keywords['scheme']
+    range_adjustment = keywords['range_adjustment']
+    color_list = keywords['color_list']
     ax = fig.add_subplot(num1,num2,i)
-    ax.plot(df[index_list[0]],df[index_list[i]])
+    if(scheme == 'bar'): 
+        ax.bar(df[index_list[0]],height=df[index_list[i]],color = color_list[i-1])       
+    elif(scheme == 'linesc'):
+        ax.plot(df[index_list[0]],df[index_list[i]],color = color_list[i-1])
+        ax.scatter(df[index_list[0]],df[index_list[i]],color = color_list[i-1])
+    else:
+        ax.plot(df[index_list[0]],df[index_list[i]],color = color_list[i-1])
     ax.set_xlabel('time')
     ax.set_ylabel(index_list[i])
-    #plt.xticks(rotation=30)  #解决坐标标签重叠问题
-    plt.subplots_adjust(hspace=0.5,wspace=0.3)
+    if(i in range_adjustment):
+        k_y0 = (max(df[index_list[i]])-min(df[index_list[i]]))/max(df[index_list[i]])
+        y0 = min(df[index_list[i]])*(1-abs(k_y0))
+        y1 = max(df[index_list[i]])*(1+abs(k_y0))
+        plt.ylim(ymin=y0,ymax=y1)
+    else:
+        print()
+    #plt.xticks(rotation=30) #坐标轴倾斜，解决坐标轴标签重叠问题
+    plt.subplots_adjust(hspace=0.3,wspace=0.3)
+    #plt.ticklabel_format(axis='y',style='sci', scilimits=(1,0)) #科学计数法,解决某些版本不能自动显示科学计数法的问题
     return(ax)
 
 def time_series(file,lack_values):
