@@ -41,3 +41,10 @@ NCL或者grads，因为它们上手更简单，可用的气象相关的现成画
 方式可能有些不一样。【此处欢迎原创作者推荐自己的教程】
 metedraw团队未来也有兴趣整理我们自己之前的学习笔记，制作一些针对气象、环境类专业的Python教程。当然，在此之前我们还是推荐您去学习互联网上的气象大佬们的笔记。
 
+###给0基础小白的快速上手Python的建议###
+1.下载一个IDE（集成开发环境），比如Anaconda或Visual Studio。具体安装教程可自行搜索：安装xx。
+Q:下载了IDE以后还用下载Python吗？
+A:不需要，Anaconda会在安装的时候自带Python；Visual Studio则在安装的时候会让你选择需要下载的语言（选上Python即可）。
+2.安装常用库包：matplotlib、pandas、numpy、netCDF4、xarray、cartopy、basemap
+*检查安装库包是否安装好的方法：新建一个脚本，输入import XXX（库包名字）然后运行，没报错即可
+3.从最基础的教程开始，熟悉基本语法和数据结构，比如print('Hello World')这种
