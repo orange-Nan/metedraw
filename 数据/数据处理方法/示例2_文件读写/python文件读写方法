@@ -1,29 +1,33 @@
 python文件读写方法
 
-一、文本文件读写
+一、文本文件读写(txt等)
 1.文本文件读写的几种常见形式： 
 (1)r 只能读 若文件不存在则报错 r+ 可读可写 若文件不存在则报错，会覆盖原文件 
 (2)w 只能写 若文件不存在则创建，会覆盖原文件 w+ 可读可写 若文件不存在则创建，会覆盖原文件 
 (3)a 只能写 若文件不存在则创建，不会覆盖原文件（追加写） a+ 可读可写 若文件不存在则创建，不会覆盖原文件（追加写）
-
-f = open(r'C:\Users\LULU\Desktop\1.txt','r',encoding='utf-8')
+f = open(r'C:\Users\LULU\Desktop\1.txt','r')
 data = f.read()
 print(data)
-
 2.关于r+,w+,a+的使用说明： 
 使用r+模式，当只读文件的时候，可以读取到其中的内容。 当写入内容后，立即读取文件内容，发现什么也读取不到。
 这是由于当你写入内容后，文件句柄会放在写入内容的最后面，因此当你立即读取的时候，句柄会从上次内容最后的位置，朝后面读，因此读取为空。 
 当朝文件中写入内容后，调整句柄位置后，再读取文件中的内容，发现就有了内容。
 这是由于我们使用了f.seek(O)方法，将句柄由内容末尾调整到了内容开头，因此就又有了内容。
-
-f = open(r'C:\Users\LULU\Desktop\1.txt','r+',encoding='utf-8')
+f = open(r'C:\Users\LULU\Desktop\1.txt','r+')
 f.write('2222')
 f.seek(0)
 data = f.read()
 print(data)
 f.close()
-
 3.read,readline,readlines的区别： 
 (1)read —次性读取所有内容，不读取文章末尾的换行符，返回的是—整个内容的亨符串 
 (2)readline 一行一行的读取文件中的内容，会读取文中末尾的换行符，返回的每一行也是一个字符串 
 (3)readlines —次性读取所有内容，会读取文中末尾的换行符，返回—整个内容列表
+
+二、excel文件读写
+读写excel文件需要使用pandas库或xlrd库
+1.pandas：
+import pandas as pd
+file = r'C:\Users\LULU\Desktop\2.xls'
+data = pd.read_excel(file) 
+print(data)
