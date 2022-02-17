@@ -27,8 +27,22 @@ f.close()  #关闭文件
 
 二、excel文件读写
 读取excel文件需要使用pandas库或xlrd库，写入需要用到pandas库或xlwt库（需要提前安装好）
-1.（推荐使用）pandas：
+（推荐使用）pandas示例：
 import pandas as pd
-file = r'C:\Users\LULU\Desktop\2.xls'
-data = pd.read_excel(file) 
+file1 = r'C:\Users\LULU\Desktop\2.xls'
+data = pd.read_excel(file1)   #data的格式为DataFrame
 print(data)
+—— —— —— —— —— —— —— —— —— —— 
+        date  var1  var2
+0 2022-01-01   1.6    35
+1 2022-01-02   2.3    37
+2 2022-01-03   2.1    31
+3 2022-01-04   1.8    24
+4 2022-01-05   2.0    29
+—— —— —— —— —— —— —— —— —— —— 
+print(len(data))  #输出data的行数(5行)
+print(data.keys())   #输出data的每一列的名称（变量名）：Index(['date', 'var1', 'var2'], dtype='object'
+print(data['date'])  #输出data的某一列
+
+file2 = r'C:\Users\LULU\Desktop\3.xls'  #如果3.xls不存在，则会被创建（前提是文件路径存在）
+data.to_excel(file2)  #写DataFrame入excel文件
