@@ -1,41 +1,42 @@
+#å¯¼å…¥éœ€è¦ç”¨åˆ°çš„åŒ…ï¼Œæ­¤å¤„è¯»å–ncæ–‡ä»¶ä½¿ç”¨çš„æ˜¯netCDF4
 import netCDF4 as nc
 import matplotlib.pyplot as plt
 
-#µ¼ÈëÎÄ¼ş
+#å¯¼å…¥æ–‡ä»¶
 filename = r'C:\Users\LULU\Desktop\air.nc'
 f = nc.Dataset(filename)
 
-#²é¿´ÎÄ¼şĞÅÏ¢
+#æŸ¥çœ‹æ–‡ä»¶ä¿¡æ¯
 #print(f)  
 
-#»ñÈ¡ËùÓĞ±äÁ¿ĞÅÏ¢
-all_vars = f.variables.keys()  #²é¿´±äÁ¿Ãû³Æ
+#è·å–æ‰€æœ‰å˜é‡ä¿¡æ¯
+all_vars = f.variables.keys()  #æŸ¥çœ‹å˜é‡åç§°
 #print(all_vars)  #dict_keys(['level', 'lat', 'lon', 'time', 'air'])
-all_vars_info = f.variables.items()  #²é¿´±äÁ¿ÏêÏ¸ĞÅÏ¢
+all_vars_info = f.variables.items()  #æŸ¥çœ‹å˜é‡è¯¦ç»†ä¿¡æ¯
 #print(all_vars_info)  
 
-#²é¿´µ¥¸ö±äÁ¿ĞÅÏ¢
+#æŸ¥çœ‹å•ä¸ªå˜é‡ä¿¡æ¯
 var = 'level'
-var_info = f.variables[var]  #»ñÈ¡±äÁ¿ĞÅÏ¢
-var_data = f[var][:]  #»ñÈ¡±äÁ¿Êı¾İ
+var_info = f.variables[var]  #è·å–å˜é‡ä¿¡æ¯
+var_data = f[var][:]  #è·å–å˜é‡æ•°æ®
 #print(var_info)   #air(time, level, lat, lon)
 #print(var_data)
 
-#ÌáÈ¡±äÁ¿
+#æå–å˜é‡
 level = f.variables['level'][:]
 lat = f.variables['lat'][:]
 lon = f.variables['lon'][:]
 time = f.variables['time']
-air = f.variables['air'][:]  #×¢Òâ£¬ÕâÀïµÄairÊÇ·Ö²ã´ÎµÄ¶àÎ¬Êı×é(Monthly Mean of Air temperature£¬Ê±¼äÖ»ÓĞÒ»Î¬£¬ËµÃ÷ÊÇÖ»ÓĞÄ³¸öÔÂµÄ)
-air1 = f.variables['air'][0,0,:,:] #È¡Ê±¼äÎª0£¬²ã´ÎÎª0(1000hPa)µÄËùÓĞ¸ñµãµÄair£¨ÆøÎÂ£©
-#print(air1)  #¿ÉÒÔ²é¿´Ò»ÏÂÊı¾İ
+air = f.variables['air'][:]  #æ³¨æ„ï¼Œè¿™é‡Œçš„airæ˜¯åˆ†å±‚æ¬¡çš„å¤šç»´æ•°ç»„(Monthly Mean of Air temperatureï¼Œæ—¶é—´åªæœ‰ä¸€ç»´ï¼Œè¯´æ˜æ˜¯åªæœ‰æŸä¸ªæœˆçš„)
+air1 = f.variables['air'][0,0,:,:] #å–æ—¶é—´ä¸º0ï¼Œå±‚æ¬¡ä¸º0(1000hPa)çš„æ‰€æœ‰æ ¼ç‚¹çš„airï¼ˆæ°”æ¸©ï¼‰
+#print(air1)  #å¯ä»¥æŸ¥çœ‹ä¸€ä¸‹æ•°æ®
 
-fig=plt.figure(figsize=(10,10),dpi=200)  #´´½¨»­²¼
-im = plt.imshow(air1,cmap='jet')  #»æÍ¼£¬air1±ØĞëÊÇ¶şÎ¬µÄÊı¾İ
-plt.yticks([0,36.5,72],['90¡ãN','0¡ã','90¡ãS'])  #±êÉÏÎ³¶È£¬latµÄÊıÄ¿ÊÇ73
-plt.xticks([0,36,72,108,143],['0¡ã','90¡ãE','180¡ã','90¡ãW','0¡ã']) #±êÉÏ¾­¶È£¬lonµÄÊıÄ¿ÊÇ144
-plt.colorbar(im,label='Temperature(¡ãC)', orientation='horizontal') #Ìí¼ÓÍ¼Àı
-plt.title('Monthly Mean of Air temperature(1000hPa)',fontsize=15,y=1.1) #Ìí¼Ó±êÌâ£¬µ÷Õû×ÖºÅºÍÎ»ÖÃ
+fig=plt.figure(figsize=(10,10),dpi=200)  #åˆ›å»ºç”»å¸ƒ
+im = plt.imshow(air1,cmap='jet')  #ç»˜å›¾ï¼Œair1å¿…é¡»æ˜¯äºŒç»´çš„æ•°æ®
+plt.yticks([0,36.5,72],['90Â°N','0Â°','90Â°S'])  #æ ‡ä¸Šçº¬åº¦ï¼Œlatçš„æ•°ç›®æ˜¯73
+plt.xticks([0,36,72,108,143],['0Â°','90Â°E','180Â°','90Â°W','0Â°']) #æ ‡ä¸Šç»åº¦ï¼Œlonçš„æ•°ç›®æ˜¯144
+plt.colorbar(im,label='Temperature(Â°C)', orientation='horizontal') #æ·»åŠ å›¾ä¾‹
+plt.title('Monthly Mean of Air temperature(1000hPa)',fontsize=15,y=1.1) #æ·»åŠ æ ‡é¢˜ï¼Œè°ƒæ•´å­—å·å’Œä½ç½®
 plt.savefig('C:/Users/LULU/Desktop/Temperature_distribution(1000hPa).jpg')
 plt.show()
 
