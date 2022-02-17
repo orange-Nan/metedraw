@@ -26,7 +26,7 @@ f.close()  #关闭文件，不影响文件在其他软件中的使用
 (2)readline 一行一行的读取文件中的内容，会读取文中末尾的换行符，返回的每一行也是一个字符串 
 (3)readlines 一次性读取所有内容，会读取文中末尾的换行符，返回一整个内容的列表
 
-二、excel表格文件(xls、xlsx)读写
+二、excel表格文件读写(xls、xlsx)
 读取xls、xlsx文件需要使用pandas库或xlrd库，写入需要用到pandas库或xlwt库（需要提前安装好）
 （推荐使用）pandas示例：
 import pandas as pd
