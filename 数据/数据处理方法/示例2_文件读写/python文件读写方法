@@ -51,7 +51,8 @@ file2 = r'C:\Users\LULU\Desktop\3.xls'  #如果3.xls不存在，则会被创建�
 data1.to_excel(file2)  #将DataFrame写入excel文件
 
 三、csv文件读写
-读写csv文件推荐使用pandas库（也可以提前使用excel将xls、xlsx文件处理成csv文件）
+读写csv文件推荐使用pandas库（也可以使用excel，xls、xlsx文件和csv文件互相转换及预处理）
+**注意：读写和处理csv文件的时候需注意表头（列名）是否也一起被读写
 #读取文件file3(4.csv)
 file3 = r'C:\Users\LULU\Desktop\4.csv'
 data2 = pd.read_csv(file3)  #读取的data2的格式为DataFrame，DataFrame的操作同（二），读者可自行完成
