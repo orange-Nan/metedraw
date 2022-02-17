@@ -26,14 +26,15 @@ f.close()  #关闭文件
 (2)readline 一行一行的读取文件中的内容，会读取文中末尾的换行符，返回的每一行也是一个字符串 
 (3)readlines 一次性读取所有内容，会读取文中末尾的换行符，返回一整个内容的列表
 
-二、excel文件读写
-读取excel文件需要使用pandas库或xlrd库，写入需要用到pandas库或xlwt库（需要提前安装好）
+二、excel表格文件(xls、xlsx)读写
+读取xls、xlsx文件需要使用pandas库或xlrd库，写入需要用到pandas库或xlwt库（需要提前安装好）
 （推荐使用）pandas示例：
 import pandas as pd
 file1 = r'C:\Users\LULU\Desktop\2.xls'
-data = pd.read_excel(file1)   #data的格式为DataFrame
-print(data)
+data1 = pd.read_excel(file1)   #读取的data的格式为DataFrame
+print(data1) #输出data1
 —— —— —— —— —— —— —— —— —— —— 
+输出结果：
         date  var1  var2
 0 2022-01-01   1.6    35
 1 2022-01-02   2.3    37
@@ -41,9 +42,12 @@ print(data)
 3 2022-01-04   1.8    24
 4 2022-01-05   2.0    29
 —— —— —— —— —— —— —— —— —— —— 
-print(len(data))  #输出data的行数(5行)
-print(data.keys())   #输出data的每一列的名称（变量名）：Index(['date', 'var1', 'var2'], dtype='object'
-print(data['date'])  #输出data的某一列
+print(len(data1))  #输出data1的行数(5行)
+print(data1.keys())   #输出data1的每一列的名称（变量名）：Index(['date', 'var1', 'var2'], dtype='object'
+print(data1['date'])  #输出data1的某一列
 
 file2 = r'C:\Users\LULU\Desktop\3.xls'  #如果3.xls不存在，则会被创建（前提是文件路径存在）
-data.to_excel(file2)  #写DataFrame入excel文件
+data.to_excel(file2)  #将DataFrame写入excel文件
+
+三、csv文件读写
+读写csv文件推荐使用pandas库（也可以提前使用excel将xls、xlsx文件处理成csv文件）
