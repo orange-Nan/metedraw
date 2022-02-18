@@ -18,4 +18,4 @@ file3 = r'C:\Users\LULU\Desktop\4.csv'
 data2 = pd.read_csv(file3)
 
 file4 = r'C:\Users\LULU\Desktop\5.csv'
-data1.to_csv(file4)
+data1.to_csv(file4) #将data1写入file4(5.csv)
