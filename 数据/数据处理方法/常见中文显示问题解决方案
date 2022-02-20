@@ -1,5 +1,9 @@
 1.在脚本的第一行添加以下代码：
 #coding=utf-8
 
-2.读取文件中的中文字符：
+2.读取文件中的中文字符（写入同理）：
 with open(inputfile,'r',newline='',encoding='utf-8') as csv_in_file:
+
+3.画图显示中文：
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
