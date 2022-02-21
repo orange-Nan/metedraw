@@ -1,18 +1,23 @@
+1.需要用到的库：
 #coding=utf-8
 import pandas as pd
 from pathlib import Path
 from pandas import DataFrame
-import csv
 import numpy as np
 
+2.输入的文件夹路径，获取文件列表：
 p = Path('D:\BaiduNetdiskDownload')
-filelist = list(p.glob('**/*.csv'))
+filelist = list(p.glob('*\*.csv')) 
+
+3.输出的文件
 outfile = r'C:\Users\LULU\Desktop\1.csv'
 
-#查看文件列表
-#for file in filelist:
-#    print(file)
+4.查看文件列表
+for file in filelist:
+    print(file)
 
+5.利用循环依次遍历所有文件，将需要的信息写入输出文件
+如果需要对数据进行处理，也可以在这一步进行
 for i in range(len(filelist)):
     with open(filelist[i],'r',newline='',encoding='utf-8') as csv_in_file:
         with open(outfile,'a', newline='') as csv_out_file:
@@ -20,4 +25,3 @@ for i in range(len(filelist)):
             filewriter = csv.writer(csv_out_file)
             data = f[f['type']=='PM2.5']
             data.to_csv(outfile, index=False, header=False,mode = 'a')
-
