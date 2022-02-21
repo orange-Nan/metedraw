@@ -18,6 +18,7 @@ for file in filelist:
 
 5.利用循环依次遍历所有文件，将需要的信息写入输出文件
 如果需要对数据进行处理，也可以在这一步进行
+*建议：学习DataFrame数据结构，熟悉pandas和numpy库中常用的数据处理方法
 for i in range(len(filelist)):
     with open(filelist[i],'r',newline='',encoding='utf-8') as csv_in_file:
         with open(outfile,'a', newline='') as csv_out_file:
