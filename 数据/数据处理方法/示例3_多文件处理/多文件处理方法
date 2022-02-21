@@ -1,1 +1,23 @@
+#coding=utf-8
+import pandas as pd
+from pathlib import Path
+from pandas import DataFrame
+import csv
+import numpy as np
+
+p = Path('D:\BaiduNetdiskDownload')
+filelist = list(p.glob('**/*.csv'))
+outfile = r'C:\Users\LULU\Desktop\1.csv'
+
+#查看文件列表
+#for file in filelist:
+#    print(file)
+
+for i in range(len(filelist)):
+    with open(filelist[i],'r',newline='',encoding='utf-8') as csv_in_file:
+        with open(outfile,'a', newline='') as csv_out_file:
+            f = pd.read_csv(csv_in_file,usecols=['date','hour','type','沈阳'])
+            filewriter = csv.writer(csv_out_file)
+            data = f[f['type']=='PM2.5']
+            data.to_csv(outfile, index=False, header=False,mode = 'a')
 
