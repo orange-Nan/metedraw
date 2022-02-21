@@ -4,6 +4,7 @@ import pandas as pd
 from pathlib import Path
 from pandas import DataFrame
 import numpy as np
+import csv
 
 2.输入的文件夹路径，获取文件列表：
 p = Path('D:\BaiduNetdiskDownload')
