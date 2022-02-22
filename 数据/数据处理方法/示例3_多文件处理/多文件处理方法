@@ -22,6 +22,7 @@ for file in filelist:
 如果需要对数据进行处理，也可以在这一步进行
 *建议1：使用csv等文件格式（在一定程度上可以很好地替代xls），提升处理速度
 *建议2：学习DataFrame数据结构，熟悉pandas和numpy库中常用的数据处理方法
+*建议3：使用map函数+lamba函数提升数据处理运算速度，如：data[i] = data[i].map(lambda x:x/10)
 for i in range(len(filelist)):
     with open(filelist[i],'r',newline='',encoding='utf-8') as csv_in_file:
         with open(outfile,'a', newline='') as csv_out_file:
