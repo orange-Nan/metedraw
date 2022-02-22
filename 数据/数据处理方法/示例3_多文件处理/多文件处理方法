@@ -6,7 +6,7 @@ from pandas import DataFrame
 import numpy as np
 import csv
 
-2.输入的文件夹路径，获取文件列表：
+2.输入文件夹路径，获取文件列表：
 p = Path('D:\BaiduNetdiskDownload')
 filelist = list(p.glob('*\*.csv')) 
 
@@ -19,7 +19,8 @@ for file in filelist:
 
 5.利用循环依次遍历所有文件，将需要的信息写入输出文件
 如果需要对数据进行处理，也可以在这一步进行
-*建议：学习DataFrame数据结构，熟悉pandas和numpy库中常用的数据处理方法
+*建议1：使用csv等文件格式（在一定程度上可以很好地替代xls），提升处理速度
+*建议2：学习DataFrame数据结构，熟悉pandas和numpy库中常用的数据处理方法
 for i in range(len(filelist)):
     with open(filelist[i],'r',newline='',encoding='utf-8') as csv_in_file:
         with open(outfile,'a', newline='') as csv_out_file:
