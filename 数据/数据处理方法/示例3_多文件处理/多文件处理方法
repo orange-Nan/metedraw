@@ -8,7 +8,7 @@ import csv
 
 2.输入文件夹路径，获取文件列表：
 p = Path('D:\BaiduNetdiskDownload')   #文件夹路径
-filelist = list(p.glob('*\*.csv'))   #获取指定路径下的文件名（此处为大文件夹中包含多个小文件夹）
+filelist = list(p.glob('*\*.csv'))   #获取指定路径下的文件名（此处是大文件夹中包含多个小文件夹，此方法可以完成文件夹多重嵌套读取）
 
 
 3.输出的文件
