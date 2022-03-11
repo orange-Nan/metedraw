@@ -6,16 +6,30 @@ from pandas import DataFrame
 import matplotlib.pyplot as plt
 from dateutil.parser import parse
 
-def open_csv(file,lack_values):
-    f = pd.read_csv(file,header=0,encoding='utf-8')
-    f1 = DataFrame(f)
-    f10 = f1.replace(lack_values,np.nan)
-    f11 = f10.dropna()
-    index_list = f.keys()
+def preprocessing(data,**keywords):
+    data = DataFrame(data)
+    index_list = data.keys()
     time_index = str(index_list[0])
-    f11[time_index] = f1[time_index].map(lambda x:parse(str(x)))
-    f11.index = f11[time_index]
-    return(f11)
+    data[time_index] = data[time_index].map(lambda x:parse(str(x)))
+    data.index = data[time_index]
+    try:
+        print_timeindex = keywords['print_timeindex']
+        print('start time:',data[time_index][0],'end time:',data[time_index][len(data[time_index])-1])
+    except:
+        print_timeindex = False
+    try:
+        lack_values = keywords['lack_values']
+        data = data.replace(lack_values,np.nan)
+        data = data.dropna()
+    except:
+        lack_values = False
+    try:
+        start_time = keywords['start_time']
+        end_time = keywords['end_time']
+        data = data[start_time:end_time]
+    except:
+        keywords['start_time'] = False   
+    return(data)
 
 def draw_ax(df,index_list,fig,num1,num2,i,keywords):
     scheme = keywords['scheme']
@@ -38,9 +52,9 @@ def draw_ax(df,index_list,fig,num1,num2,i,keywords):
         plt.ylim(ymin=y0,ymax=y1)
     else:
         print()
-    #plt.xticks(rotation=30) #×ø±êÖáÇãĞ±£¬½â¾ö×ø±êÖá±êÇ©ÖØµşÎÊÌâ
+    #plt.xticks(rotation=30) #åæ ‡è½´å€¾æ–œï¼Œè§£å†³åæ ‡è½´æ ‡ç­¾é‡å é—®é¢˜
     plt.subplots_adjust(hspace=0.3,wspace=0.3)
-    #plt.ticklabel_format(axis='y',style='sci', scilimits=(1,0)) #¿ÆÑ§¼ÆÊı·¨,½â¾öÄ³Ğ©°æ±¾²»ÄÜ×Ô¶¯ÏÔÊ¾¿ÆÑ§¼ÆÊı·¨µÄÎÊÌâ
+    #plt.ticklabel_format(axis='y',style='sci', scilimits=(1,0)) #ç§‘å­¦è®¡æ•°æ³•,è§£å†³æŸäº›ç‰ˆæœ¬ä¸èƒ½è‡ªåŠ¨æ˜¾ç¤ºç§‘å­¦è®¡æ•°æ³•çš„é—®é¢˜
     return(ax)
 
 def time_series(df,**keywords):
