@@ -13,6 +13,7 @@ metedraw是一个主要面向于大气科学、海洋科学、环境科学等专
 # metedraw 1.1    ——2022/3/26
 【新增】
 预处理函数preprocessing
+
     默认功能：解析第一列为时间（方便后续绘图）
     可选功能：print_timeindex输出文件的起始时间和终止时间、lack_values处理异常值、start_time,end_time截取时间段
   （其他的常见预处理方法，诸如标准化等，用户可直接使用pandas/sklearn等库包中的相关函数）
