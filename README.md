@@ -1,5 +1,5 @@
 # metedraw
-metedraw is a project mainly for data visualization projects of Atmospheric Science, Marine Science, Environmental Science or other majors, you can use metedraw for simple meteorological, environmental or other data visualization.
+metedraw is a project mainly for data visualization projects of Atmospheric Science, Marine Science, Environmental Science or other majors, you can use metedraw for simple data visualization in these areas.
 Our intention is to make it easier for students, researchers and practitioners in these fields -- they often have a lot of data to deal with, but most of these items are simple analysis. So we thought we could develop a program that would simplify those repetitive mechanical tasks.
 To start with this project, please read _使用说明.docx. The manual in English will be released later.
 
