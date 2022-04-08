@@ -1,10 +1,13 @@
 1.nc文件的数据构造
 一般来说，nc文件有多组数据。
+netCDF4查看nc文件数据基本信息代码如下所示
 
   import netCDF4 as nc
   #导入文件
   filename = r'D:\data\rain.nc'
   f = nc.Dataset(filename)
+  #查看nc文件信息
+  #print(f)
   #获取所有变量信息
   all_vars = f.variables.keys()  #查看变量名称
   print(all_vars) 
