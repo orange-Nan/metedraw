@@ -27,3 +27,5 @@ current shape = (360,)
 filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'netCDF4._netCDF4.Variable'>
 其中units表示单位，long_name表示全称，current shape表示各维度数量。default _FillValue表示缺测/异常值
 
+2.nc文件处理（配合metedraw使用）
+先明确自己需要处理的维度，比如说我打算做【时间】分布特征（时间序列、年变化、月变化等），那就必须要对【空间】维度进行平均
