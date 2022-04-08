@@ -1,5 +1,15 @@
 1.nc文件的数据构造
 一般来说，nc文件有多组数据。
-举例，降水数据里面可能有：prep,time,lat,lon四组数据
-dict_keys(['prep', 'time', 'lat', 'lon'])
-其中prep
+
+import netCDF4 as nc
+#导入文件
+filename = r'D:\data\rain.nc'
+f = nc.Dataset(filename)
+#获取所有变量信息
+all_vars = f.variables.keys()  #查看变量名称
+print(all_vars) 
+all_vars_info = f.variables.items()  #查看变量详细信息
+print(all_vars_info)  
+
+举例，降水数据里面可能有：prep,time,lat,lon四组数据：dict_keys(['prep', 'time', 'lat', 'lon'])
+其中prep(time,lat,lon)为三维的降水数据（时间×纬度×经度），time、lat、lon为一维数据
