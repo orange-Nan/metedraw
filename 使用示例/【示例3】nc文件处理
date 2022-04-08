@@ -32,3 +32,9 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
 在本示例中，【空间】维度指的是lat和lon
 这里需要使用到numpy
 
+  import numpy as np
+  filename = r'D:\data\rain.nc'
+  f = nc.Dataset(filename)
+  
+  prep = f.variables['prep'][:,:,:]
+  time = f.variables['time'][:]
