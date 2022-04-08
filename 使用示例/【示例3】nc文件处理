@@ -11,5 +11,16 @@
   all_vars_info = f.variables.items()  #查看变量详细信息
   print(all_vars_info)  
 
-举例，降水数据里面可能有：prep,time,lat,lon四组数据：dict_keys(['prep', 'time', 'lat', 'lon'])
+举例，降水数据里面可能有：prep,time,lat,lon四组数据：
+（1）print(all_vars)输出的信息如下：
+dict_keys(['prep', 'time', 'lat', 'lon'])
 其中prep(time,lat,lon)为三维的降水数据（时间×纬度×经度），time、lat、lon为一维数据
+（2）print(all_vars_info)输出的信息如下
+float32 longitude(longitude)
+    units: degrees_east
+    long_name: longitude
+unlimited dimensions: 
+current shape = (360,)
+filling on, default _FillValue of 9.969209968386869e+36 used), ('latitude', <class 'netCDF4._netCDF4.Variable'>
+其中units表示单位
+
