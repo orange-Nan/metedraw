@@ -1,1 +1,5 @@
-
+1.nc文件的数据构造
+一般来说，nc文件有多组数据。
+举例，降水数据里面可能有：prep,time,lat,lon四组数据
+dict_keys(['prep', 'time', 'lat', 'lon'])
+其中prep
