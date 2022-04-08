@@ -22,5 +22,5 @@ float32 lon(lon)
 unlimited dimensions: 
 current shape = (360,)
 filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'netCDF4._netCDF4.Variable'>
-其中units表示单位，long_name表示全称，current shape表示各维度数量。default _FillValue表示缺测值
+其中units表示单位，long_name表示全称，current shape表示各维度数量。default _FillValue表示缺测/异常值
 
