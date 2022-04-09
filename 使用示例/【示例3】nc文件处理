@@ -29,8 +29,8 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
 
 2.nc文件处理（配合metedraw使用）
 先明确自己需要处理的维度，比如说我打算做【时间】分布特征（时间序列、年变化、月变化等），那就必须要对【空间】维度进行平均
-在本示例中，【空间】维度指的是lat和lon
-这里需要使用到numpy
+在本示例中，【空间】维度指的是lat和lon，在其他的nc文件中可能还有level等参数
+*这里需要使用到numpy
 
   import numpy as np
   filename = r'D:\data\rain.nc'
