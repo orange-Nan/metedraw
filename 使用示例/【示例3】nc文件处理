@@ -60,3 +60,6 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   plt.suptitle('Time series of precipitation',fontsize=15,y=0.92)
   plt.savefig('C:/Users/LULU/Desktop/Rain.jpg')
   plt.show()
+
+3.注意事项：时间转换
+在一些nc文件中，时间的显示方式与我们熟悉的时间格式可能不太一样，这就涉及到时间转换的问题
