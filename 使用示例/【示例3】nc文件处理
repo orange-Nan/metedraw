@@ -65,3 +65,17 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
 在一些nc文件中，时间的显示方式与我们熟悉的时间格式可能不太一样，这就涉及到时间转换的问题
 例如：units:days since 1962-01-01 00:00:00
 表示时间是从1962年1月1日开始的天数
+如果我们想知道2020年11月30日-2021年2月3日对应在这个文件里面的时间，可以利用如下代码：
+
+  import datetime as dt
+
+  start_day = dt.datetime.strptime('1962-01-01','%Y-%m-%d')
+  day1 = dt.datetime.strptime('2020-11-30','%Y-%m-%d')
+  day2 = dt.datetime.strptime('2021-2-23','%Y-%m-%d')
+  days = []
+  while day1<day2:
+      day1 += dt.timedelta(days=+1)
+      print(day1) #输出时间，如：2020-12-01 00:00:00
+      out_day = day1 - start_day
+      days.append(out_day.days)
+  print(days) #输出nc文件中对应的时间，如：21519
