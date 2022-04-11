@@ -36,6 +36,7 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
 
   import numpy as np
   import netCDF4 as nc
+  from pandas import DataFrame
   
   #导入文件
   filename = r'D:\data\rain.nc'
@@ -48,4 +49,6 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   prep1 = list(prep1)
   time1 = list(time1)
   
-  #构造
+  #构造DataFrame
+  dict1 = {'time':time1,'prep':prep1}
+  df = DataFrame(dict1)
