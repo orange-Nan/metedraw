@@ -37,6 +37,8 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   import numpy as np
   import netCDF4 as nc
   from pandas import DataFrame
+  import matplotlib.pyplot as plt
+  import metedraw as md
   
   #导入文件
   filename = r'D:\data\rain.nc'
@@ -51,4 +53,10 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   
   #构造DataFrame
   dict1 = {'time':time1,'prep':prep1}
-  df = DataFrame(dict1)
+  data = DataFrame(dict1)
+  data = md.preprocessing(data)
+  md.time_series(data)
+
+  plt.suptitle('Time series of precipitation',fontsize=15,y=0.92)
+  plt.savefig('C:/Users/LULU/Desktop/Rain.jpg')
+  plt.show()
