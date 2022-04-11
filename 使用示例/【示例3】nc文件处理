@@ -44,3 +44,8 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   #获取数据
   prep = f.variables['prep'][:,:,:]
   time = f.variables['time'][:]
+  prep1 = np.mean(prep,axis=(1,2))
+  prep1 = list(prep1)
+  time1 = list(time1)
+  
+  #构造
