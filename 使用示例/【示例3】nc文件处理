@@ -73,9 +73,14 @@ filling on, default _FillValue of 9.969209968386869e+36 used), ('lat', <class 'n
   day1 = dt.datetime.strptime('2020-11-30','%Y-%m-%d')
   day2 = dt.datetime.strptime('2021-2-23','%Y-%m-%d')
   days = []
+  time1 = []
   while day1<day2:
       day1 += dt.timedelta(days=+1)
-      print(day1) #输出时间，如：2020-12-01 00:00:00
+      time1.append(day1)
       out_day = day1 - start_day
       days.append(out_day.days)
+      
+  print(time1) #输出时间，如：2020-12-01 00:00:00
   print(days) #输出nc文件中对应的时间，如：21519
+
+利用上述方法，我们就可以知道nc文件中的时间关系，可以根据需要的时间范围对数据data1进行切片，可以重新构造数组time1并和data1组成需要的DataFrame
