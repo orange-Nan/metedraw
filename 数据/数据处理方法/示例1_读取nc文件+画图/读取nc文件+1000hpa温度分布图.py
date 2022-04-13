@@ -16,10 +16,9 @@ all_vars_info = f.variables.items()  #查看变量详细信息
 #print(all_vars_info)  
 
 #查看单个变量信息
-var = 'level'
-var_info = f.variables[var]  #获取变量信息
-var_data = f[var][:]  #获取变量数据
-#print(var_info)   #air(time, level, lat, lon)
+var_info = f.variables['level']  #获取变量信息
+var_data = f['level'][:]  #获取变量数据
+#print(var_info)
 #print(var_data)
 
 #提取变量
